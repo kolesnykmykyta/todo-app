@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Data.Repositories
 {
-    internal interface ITodoTaskRepository : IRepository<TodoTask>
+    public interface ITodoTaskRepository : IRepository<TodoTask>
     {
         public void MarkAsDone(int id);
 
