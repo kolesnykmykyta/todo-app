@@ -3,6 +3,12 @@
 ##
 ## Get latest from https://github.com/github/gitignore/blob/main/VisualStudio.gitignore
 
+# Appsetting
+appsettings.json
+
+# Frontend libraries
+wwwroot\lib\*
+
 # User-specific files
 *.rsuser
 *.suo
