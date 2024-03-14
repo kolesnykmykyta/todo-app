@@ -7,7 +7,7 @@
 appsettings.json
 
 # Frontend libraries
-wwwroot\lib\*
+WebApp/wwwroot/lib/*/
 
 # User-specific files
 *.rsuser
