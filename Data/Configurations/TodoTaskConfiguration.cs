@@ -14,8 +14,7 @@ namespace Data.Configurations
         public void Configure(EntityTypeBuilder<TodoTask> builder)
         {
             builder.Property(nameof(TodoTask.Name)).IsRequired();
-            builder.Property(nameof(TodoTask.Description)).HasMaxLength(32);
-            builder.Property(nameof(TodoTask.Description)).HasMaxLength(128);
+            builder.Property(nameof(TodoTask.Name)).HasMaxLength(32);
         }
     }
 }
