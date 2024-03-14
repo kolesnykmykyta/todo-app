@@ -1,9 +1,9 @@
-﻿@model IEnumerable<TodoTask>
+﻿@model IEnumerable<TaskModel>
 
 <div class="w-50 text-center m-4">
     @if (Model != null && Model.Count() != 0)
     {
-        @foreach (TodoTask t in Model)
+        @foreach (TaskModel t in Model)
         {
             <div class="d-flex justify-content-between border-bottom pb-1 mb-2">
                 <div class="d-flex justify-content-center align-items-center">
