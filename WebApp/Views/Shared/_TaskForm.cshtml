@@ -1,0 +1,17 @@
+﻿@model (TaskModel Task, string SubmitAction)
+
+@{
+    TaskModel task = Model.Task;
+}
+
+<form asp-action="@Model.SubmitAction" asp-controller="Home" method="post">
+    <div class="form-group">
+        <label asp-for="@task.Name" class="control-label"></label>
+        <input asp-for="@task.Name" class="form-control" />
+        <span asp-validation-for="@task.Name" class="text-danger"></span>
+    </div>
+    <div class="mt-2 d-flex flex-row-reverse gap-2">
+        <button type="submit" class="btn btn-success">Save</button>
+        <a class="btn btn-secondary" asp-controller="Home" asp-action="Index">Cancel</a>
+    </div>
+</form>
