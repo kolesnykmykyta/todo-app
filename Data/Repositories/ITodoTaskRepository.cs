@@ -10,8 +10,10 @@ namespace Data.Repositories
 {
     public interface ITodoTaskRepository : IRepository<TodoTask>
     {
-        public void MarkAsDone(int id);
+        void MarkAsDone(int id);
 
-        public void MarkAsNotDone(int id);
+        void MarkAsNotDone(int id);
+
+        void DeleteAllCompleted();
     }
 }

@@ -63,6 +63,13 @@ namespace Data.Repositories
             _context.SaveChanges();
         }
 
+        public void DeleteAllCompleted()
+        {
+            var entitiesToDelete = _context.Tasks.Where(t => t.IsDone);
+            _context.Tasks.RemoveRange(entitiesToDelete);
+            _context.SaveChanges();
+        }
+
         private void ChangeTaskStatus(int id, bool status)
         {
             TodoTask? taskToChange = _context.Tasks.Find(id);
