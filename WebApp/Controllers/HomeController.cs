@@ -41,5 +41,19 @@ namespace WebApp.Controllers
                 return View(task);
             }
         }
+
+        [HttpPost]
+        public IActionResult CompleteTask(int id)
+        {
+            _taskRepository.MarkAsDone(id);
+            return RedirectToAction("Index");
+        }
+
+        [HttpPost]
+        public IActionResult UncompleteTask(int id)
+        {
+            _taskRepository.MarkAsNotDone(id);
+            return RedirectToAction("Index");
+        }
     }
 }
