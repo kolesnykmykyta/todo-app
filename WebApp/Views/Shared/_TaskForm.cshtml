@@ -1,10 +1,14 @@
-﻿@model (TaskModel Task, string SubmitAction)
+﻿@model (TaskModel Task, string SubmitAction, string Header)
 
 @{
     TaskModel task = Model.Task;
 }
 
+<h2>@Model.Header a task</h2>
 <form asp-action="@Model.SubmitAction" asp-controller="Home" method="post">
+    <div class="form-group">
+        <input type="hidden" asp-for="@task.Id" class="form-control" readonly />
+    </div>
     <div class="form-group">
         <label asp-for="@task.Name" class="control-label"></label>
         <input asp-for="@task.Name" class="form-control" />

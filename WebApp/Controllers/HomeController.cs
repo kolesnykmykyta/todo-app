@@ -29,11 +29,11 @@ namespace WebApp.Controllers
         }
 
         [HttpPost]
-        public IActionResult Add(TaskModel task)
+        public async Task<IActionResult> Add(TaskModel task)
         {
             if (ModelState.IsValid)
             {
-                _taskRepository.AddAsync(_mapper.Map<TodoTask>(task));
+                await _taskRepository.AddAsync(_mapper.Map<TodoTask>(task));
                 return RedirectToAction("Index");
             }
             else
@@ -54,6 +54,26 @@ namespace WebApp.Controllers
         {
             _taskRepository.MarkAsNotDone(id);
             return RedirectToAction("Index");
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> Edit(int id)
+        {
+            return View(_mapper.Map<TaskModel>(await _taskRepository.GetByIdAsync(id)));
+        }
+
+        [HttpPost]
+        public IActionResult Edit(TaskModel task)
+        {
+            if (ModelState.IsValid)
+            {
+                _taskRepository.Update(_mapper.Map<TodoTask>(task));
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                return View(task);
+            }
         }
     }
 }
