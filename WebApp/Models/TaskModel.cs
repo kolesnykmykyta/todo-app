@@ -9,5 +9,7 @@ namespace WebApp.Models
         [Required(ErrorMessage = "Task name is required.")]
         [MaxLength(32, ErrorMessage = "Task name is too long.")]
         public string Name { get; set; } = string.Empty;
+
+        public bool IsDone;
     }
 }
