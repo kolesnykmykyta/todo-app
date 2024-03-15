@@ -75,5 +75,11 @@ namespace WebApp.Controllers
                 return View(task);
             }
         }
+
+        public IActionResult DeleteAllCompleted()
+        {
+            _taskRepository.DeleteAllCompleted();
+            return RedirectToAction("Index");
+        }
     }
 }
