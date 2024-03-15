@@ -1,28 +1,12 @@
 ﻿@model IEnumerable<TaskModel>
 
+@{
+    var completedTasks = Model.Where(t => t.IsDone);
+    var tasksToDo = Model.Where(t => !t.IsDone);
+}
+
 <div class="w-50 text-center m-4">
-    @if (Model != null && Model.Count() != 0)
-    {
-        @foreach (TaskModel t in Model)
-        {
-            <div class="d-flex justify-content-between border-bottom pb-1 mb-2">
-                <div class="d-flex justify-content-center align-items-center">
-                    @t.Name
-                </div>
-                <div class="d-flex gap-2">
-                    <div>
-                        <button class="btn btn-success mr-2">Mark as done</button>
-                    </div>
-                    <div>
-                        <button class="btn btn-primary">Edit</button>
-                    </div>
-                </div>
-            </div>
-        }
-    }
-    else
-    {
-        <p>There is no tasks yet.</p>
-    }
-    <a class="btn btn-primary w-100" asp-controller="Home" asp-action="Add">Add new</a>
+    <partial name="_TaskList" model='(tasksToDo, "Your tasks", "Complete", "CompleteTask", "success")'/>
+    <a class="btn btn-primary w-100 mb-4" asp-controller="Home" asp-action="Add">Add new</a>
+    <partial name="_TaskList" model='(completedTasks, "Completed tasks", "Uncomplete", "UncompleteTask", "danger")'/>
 </div>
