@@ -5,6 +5,7 @@
 
 # Appsetting
 appsettings.json
+appsettings.Development.json
 
 # Frontend libraries
 WebApp/wwwroot/lib/*/
