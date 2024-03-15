@@ -9,5 +9,8 @@
     <partial name="_TaskList" model='(tasksToDo, "Your tasks", "Complete", "CompleteTask", "success")' />
     <a class="btn btn-primary w-100 mb-4" asp-controller="Home" asp-action="Add">Add new</a>
     <partial name="_TaskList" model='(completedTasks, "Completed tasks", "Uncomplete", "UncompleteTask", "danger")' />
-    <a class="btn btn-danger w-100 mb-4">Delete all completed</a>
+    @if (completedTasks.Any())
+    {
+        <a class="btn btn-danger w-100 mb-4">Delete all completed</a>
+    }
 </div>
